@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var satır1=0;
+		var satır2=0;
+		var sutun1=0;
+		var sutun2=0;
+
+		var dizi1=new Array();
+		var dizi2=new Array();
+
+	function yukle() {
+		
+		satır1=prompt("Satır sayısını giriniz");
+		sutun1=prompt("sutun sayısnını griniz");
+
+		dizi1=new Array(satır1);
+
+		var anadiv=document.createElement("div");
+		document.body.appendChild(anadiv);
+		anadiv.setAttribute("style","float:left;background-color:aqua;margin-right:10px;")
+
+		for (var i = 0; i < satır1; i++) {
+			dizi1[i]=new Array(sutun1);
+			var satırdiv=document.createElement("div");
+			anadiv.appendChild(satırdiv);
+			satırdiv.id="satır";
+			satırdiv.setAttribute("style","clear:left;")
+			for (var j = 0; j < sutun1; j++) {
+				var divsutun=document.createElement("div");
+				satırdiv.appendChild(divsutun);
+				dizi1[i][j]=prompt((i+1)+". satırı"+(j+1)+". sutunu giriniz");
+				divsutun.textContent=dizi1[i][j];
+				divsutun.setAttribute("style","float:left;border:1px solid gray;width:30px;height:30px");
+
+		
+				}
+			}
+
+			alert("İKİNCİ MATRİSİ GİRİNİZ");
+
+
+		satır2=prompt("Satır sayısını giriniz");
+		sutun2=prompt("sutun sayısnını griniz");
+
+		dizi2=new Array(satır2);
+
+		var anadiv=document.createElement("div");
+		document.body.appendChild(anadiv);
+		anadiv.setAttribute("style","float:left;background-color:aqua;margin-right:10px;")
+
+		for (var i = 0; i < satır2; i++) {
+			dizi2[i]=new Array(sutun2);
+			var satırdiv=document.createElement("div");
+			anadiv.appendChild(satırdiv);
+			satırdiv.id="satır";
+			satırdiv.setAttribute("style","clear:left;")
+			for (var j = 0; j < sutun2; j++) {
+				var divsutun=document.createElement("div");
+				satırdiv.appendChild(divsutun);
+				dizi2[i][j]=prompt((i+1)+". satırı"+(j+1)+". sutunu giriniz");
+				divsutun.textContent=dizi2[i][j];
+				divsutun.setAttribute("style","float:left;border:1px solid gray;width:30px;height:30px");
+
+		
+				}
+			}
+
+		if(sutun1==satır2)
+		{
+
+		}
+		else
+			alert("Bu matris çarpılamaz lütfen n*m m*n türünde giriniz");
+	}
+
+	var a=0;
+	function carp()
+	{
+		if(a==0)
+		{
+		if(sutun1==satır2)
+		{
+		a++;
+		var toplam=0;
+		var anadiv=document.createElement("div");
+		document.body.appendChild(anadiv);
+		anadiv.setAttribute("style","float:left;background-color:aqua;margin-right:10px;")
+		for (var i = 0; i < satır1; i++) {
+			var carpsatır=document.createElement("div");
+			carpsatır.id="carpsatır";
+			anadiv.appendChild(carpsatır);
+			carpsatır.setAttribute("style","clear:left;");
+			for (var j = 0; j < sutun2; j++) {
+				for (var k = 0; k < sutun1; k++) {
+					toplam+=(dizi1[i][k]*dizi2[k][j]);
+				}
+				var carpsutun=document.createElement("div");
+				carpsatır.appendChild(carpsutun);
+				carpsutun.textContent=toplam;
+				carpsutun.setAttribute("style","float:left;border:1px solid gray;width:30px;height:30px")
+				//console.log(toplam);
+				toplam=0;
+			}
+		}
+	}
+	else
+		alert("Bu matris çarpılamaz lütfen 2*3 3*2 türünde giriniz");
+}
+}
+		
+</script>
+</head>
+<body onload="yukle()">
+<input type="button" value="CARP" onclick="carp()">
+</body>
+</html>
