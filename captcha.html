@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		var key="";
+		var canvass;
+
+		function init()
+		{
+			canvass=document.getElementById("canvas1").getContext("2d");
+			canvass.fillStyle="aqua";
+			degistir();
+		}
+
+		key2="";
+		function degistir()
+		{
+			for (var i = 0; i < 10; i++) {
+				var sayi=Math.random()*2;
+				if(Math.round(sayi)==0)
+				{
+					key2+=String.fromCharCode(48+9*Math.random());
+				}
+				else if(Math.round(sayi)==1)
+				{
+					key2+=String.fromCharCode(65+25*Math.random());
+				}
+				else
+				{
+					key2+=String.fromCharCode(97+25*Math.random());
+				}
+			}
+			
+			canvass.fillRect(0,0,150,50);
+			canvass.strokeText(key2,24,24);
+			key=key2;
+			key2="";
+		}
+
+		function kontrol() {
+			var deger=document.getElementById("giris").value;
+			sayac=0;
+			for (var i = 0; i < deger.length; i++) {
+					if(deger[i]==key[i])
+						sayac++
+				}	
+
+			if(sayac>=key.length*9/10)
+			{
+				alert("doğru");
+			}
+			else
+				alert("yanlış");
+
+		}
+
+	</script>
+</head>
+<body onload="init()">
+	<h1>Guvenlik Kepçeşi</h1>
+<div>
+<canvas id="canvas1" width="150px" height="50px"></canvas>
+<input type="input" id="giris">
+<input type="button" value="Degistir" onclick="degistir()">
+<input type="button" value="Kontrol Et" onclick="kontrol()">
+</div>
+</body>
+</html>
