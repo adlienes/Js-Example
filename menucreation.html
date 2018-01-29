@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.yatay{
+			list-style-type: none;
+			float: left;
+			width: 150px;
+			border: 1px solid #CCCCCC;
+			font-size: 12px;
+			font-family: Tahoma;
+			font-weight: bold;
+			background-color:aquamarine;
+		}
+
+		.dikey{
+			width: 150px;
+			border: 1px solid #CCCCCC;
+			font-size: 12px;
+			font-family: Tahoma;
+			font-weight: bold;
+			background-color:aquamarine;
+			list-style-type: none;
+
+		}
+
+
+	</style>
+	<script type="text/javascript">
+
+		function yukle() {
+			var tip=prompt("Menu Yataymı Dikeymi Olsun");
+			
+			if(tip=="yatay" || tip=="YATAY" || tip=="Yatay" || tip=="1" )
+			{
+				var elamanları=prompt("Menu Elemanları Kaç tane olsun");
+				for (var i = 0; i <elamanları; i++) {
+					var eleman=prompt("Elaman giriniz");
+					var sutun=document.createElement("li");
+					sutun.setAttribute("class","yatay");
+					sutun.textContent=eleman;
+					document.body.appendChild(sutun);
+				}
+			}
+			else if(tip=="dikey" || tip=="DİKEY" || tip=="Dikey" || tip=="2")
+			{
+				var elamanları=prompt("Menu Elemanları Kaç tane olsun");
+				for (var i = 0; i < elamanları; i++) {
+					var eleman=prompt("Elaman giriniz");
+					var satir=document.createElement("li");
+					satir.setAttribute("class","dikey");
+					satir.textContent=eleman;
+					document.body.appendChild(satir);
+				}
+				
+			}
+			else{
+				alert("allah seni alsın yanlış şey girdin daaa!!!");
+			}
+
+		 } 
+		
+	</script>
+</head>
+<body onload="yukle()">
+
+</body>
+</html>
